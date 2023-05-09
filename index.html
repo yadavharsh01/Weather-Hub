@@ -1,0 +1,221 @@
+        <!-- final weather app  -->
+
+        <!DOCTYPE html>
+        <html lang="en">
+          <head>
+            <meta charset="UTF-8" />
+            <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+            <title>Weather Hub</title>
+            <script src="https://cdn.tailwindcss.com"></script>
+            <script src="//unpkg.com/alpinejs" defer></script>
+            <script defer src="script.js"></script>
+            <link rel="stylesheet" href="style.css">
+        
+            
+          </head>
+          <body>
+            <main>
+              <header class="">
+                <nav
+                  x-data="{ isOpen: false }"
+                  class="container mx-auto p-6 lg:flex lg:items-center lg:justify-between"
+                >
+                  <div class="flex items-center justify-between">
+                    <div>
+                        <main>
+                            <h2><span class="weather"> Weather <span class="hub">hub</span></span></h2>
+                           </main>
+                     
+                      
+                      
+                    </div>
+<!--         
+                    Mobile menu button-->
+                    
+                    <div class="flex lg:hidden">
+                      <button
+                        x-cloak
+                        @click="isOpen = !isOpen"
+                        type="button"
+                        class="text-gray-500 hover:text-gray-600 focus:text-gray-600 focus:outline-none dark:text-gray-200 dark:hover:text-gray-400 dark:focus:text-gray-400"
+                        aria-label="toggle menu"
+                      >
+                        <svg
+                          x-show="!isOpen"
+                          xmlns="http://www.w3.org/2000/svg"
+                          class="h-6 w-6"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M4 8h16M4 16h16"
+                          />
+                        </svg>
+        
+                        <svg
+                          x-show="isOpen"
+                          xmlns="http://www.w3.org/2000/svg"
+                          class="h-6 w-6"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M6 18L18 6M6 6l12 12"
+                          />
+                        </svg>
+                      </button>
+                    </div>
+                  </div> 
+        
+                  <!-- Mobile Menu open: "block", Menu closed: "hidden" -->
+                  <div
+                    x-cloak
+                    :class="[isOpen ? 'translate-x-0 opacity-100 ' : 'opacity-0 -translate-x-full']"
+                    class="absolute inset-x-0 z-20 w-full bg-white px-6 py-4 shadow-md transition-all duration-300 ease-in-out dark:bg-gray-900 lg:relative lg:top-0 lg:mt-0 lg:flex lg:w-auto lg:translate-x-0 lg:items-center lg:bg-transparent lg:p-0 lg:opacity-100 lg:shadow-none lg:dark:bg-transparent"
+                  >
+                    <div
+                      class="flex flex-col space-y-4 lg:mt-0 lg:flex-row lg:space-y-0"
+                    >
+                      <a
+                        class="text-bblackhover:text-blue-500 dark:text-black dark:hover:text-blue-400 lg:mx-6"
+                        href="#"
+                        >Home</a
+                      >
+                      <a
+                        class="text-black-700 hover:text-blue-500 dark:text-black dark:hover:text-blue-400 lg:mx-6"
+                        href="#"
+                        >About Us</a
+                      >
+                      <a
+                        class="text-black-700 hover:text-blue-500 dark:text-gray-200 dark:hover:text-blue-400 lg:mx-6"
+                        href="#"
+                        >How to Use?</a
+                      >
+                      <a
+                        class="text-black-700 hover:text-blue-500 dark:text-gray-200 dark:hover:text-blue-400 lg:mx-6"
+                        href="#"
+                        >Contact Us</a
+                      >
+                      <a
+                        class="text-black-700 hover:text-blue-500 dark:text-gray-200 dark:hover:text-blue-400 lg:mx-6"
+                        href="#"
+                        >FAQ's</a
+                      >
+                    </div>
+        
+                    <a
+                      class="mt-4 block h-10 transform rounded-md border px-5 py-2 text-center text-sm capitalize text-black-700 transition-colors duration-300 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 lg:mt-0 lg:w-auto"
+                      href="#"
+                    >Login
+                    </a>
+                  </div>
+                </nav>
+        
+                <div class="container mx-auto px-6 py-16 pt-28 text-center">
+                  <div class="mx-auto max-w-lg">
+                    <h1
+                      class="text-3xl font-bold text-white-800 dark:text-white md:text-4xl"
+                    >
+                    Now,Know Everything About Your Place!!!🌍
+                    </h1>
+        
+                    <div class="max-w-2xl mx-auto pt-5">
+                      <form id="search-location">
+                        <label
+                          for="default-search"
+                          class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-gray-300"
+                          >Search</label
+                        >
+                        <div class="relative">
+                          <div
+                            class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none"
+                          >
+                            <svg
+                              class="w-5 h-5 text-gray-500 dark:text-gray-400"
+                              fill="none"
+                              stroke="currentColor"
+                              viewBox="0 0 24 24"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                              ></path>
+                            </svg>
+                          </div>
+                          <input
+                            type="search"
+                            id="default-search"
+                            class="block p-4 pl-10 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            placeholder="Search Your location here..."
+                            required
+                          />
+                          <button
+                            type="click"
+                            class="detect-loc absolute right-[5rem] bottom-1.5 px-4 py-2 group"
+                          >
+                            <svg
+                              fill="#858080"
+                              width="30px"
+                              height="30px"
+                              viewBox="-2.4 -2.4 28.80 28.80"
+                              xmlns="https://www.svgrepo.com/show/127575/location-sign.svg"
+                              stroke="#858080"
+                            >
+                              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                              <g
+                                id="SVGRepo_tracerCarrier"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              ></g>
+                              <g id="SVGRepo_iconCarrier">
+                                <path
+                                  fill-rule="evenodd"
+                                  d="M3.05492878,13 L1,13 L1,11 L3.05492878,11 C3.5160776,6.82838339 6.82838339,3.5160776 11,3.05492878 L11,1 L13,1 L13,3.05492878 C17.1716166,3.5160776 20.4839224,6.82838339 20.9450712,11 L23,11 L23,13 L20.9450712,13 C20.4839224,17.1716166 17.1716166,20.4839224 13,20.9450712 L13,23 L11,23 L11,20.9450712 C6.82838339,20.4839224 3.5160776,17.1716166 3.05492878,13 Z M12,5 C8.13400675,5 5,8.13400675 5,12 C5,15.8659932 8.13400675,19 12,19 C15.8659932,19 19,15.8659932 19,12 C19,8.13400675 15.8659932,5 12,5 Z M12,8 C14.209139,8 16,9.790861 16,12 C16,14.209139 14.209139,16 12,16 C9.790861,16 8,14.209139 8,12 C8,9.790861 9.790861,8 12,8 Z M12,10 C10.8954305,10 10,10.8954305 10,12 C10,13.1045695 10.8954305,14 12,14 C13.1045695,14 14,13.1045695 14,12 C14,10.8954305 13.1045695,10 12,10 Z"
+                                ></path>
+                              </g>
+                              <span
+                                class="opacity-0 group-hover:opacity-100 absolute top-0 left-0 bg-white text-black px-4 py-2 mt-10 rounded shadow-lg"
+                              >
+                                Detect location
+                              </span>
+                            </svg>
+                          </button>
+        
+                          <button
+                            type="submit"
+                            class="text-black absolute right-2.5 bottom-2.5 bg-orange-400 hover:bg-orange-500 focus:ring-4 focus:outline-none focus:ring-orange-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-orange-600 dark:hover:bg-orange-700 dark:focus:ring-orange-800"
+                          >
+                            Search
+                          </button>
+                        </div>
+                      </form>
+        
+                      <p class="mt-5 text-white-800 dark:text-white">
+                        A hub where you can know about the Weather of any place. <br> Introducing!!!
+                        <h2><span class="weather"> Weather <span class="hub">hub</span></span></h2>
+                        
+                        <br> 
+                      </p>
+                    </div>
+                  </div>
+        
+                  <div class="mx-auto mt-28 max-w-screen-xl weather-card"></div>
+                </div>
+              </header>
+            </main>
+           
+          </body>
+        </html>
+        
