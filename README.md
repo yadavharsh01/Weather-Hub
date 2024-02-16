@@ -7,7 +7,7 @@ Welcome to Weather-Hub, your go-to hub for real-time weather information! This w
   #### GitHub Pages
        https://yadavharsh01.github.io/Weather-Hub/
   #### Netlify
-            
+       https://loquacious-platypus-d3c949.netlify.app/     
 
 ## Tech Stack
 
