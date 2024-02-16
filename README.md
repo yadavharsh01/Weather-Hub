@@ -3,6 +3,9 @@
 It is a Hub where you can search Weather for any place!!! 
 &
 Welcome to Weather-Hub, your go-to hub for real-time weather information! This web application is built using HTML, CSS, and JavaScript, with additional enhancements from Material UI and Tailwind CSS for a modern and user-friendly design. The project leverages API fetching and specifically fetches weather data via the OpenWeatherMap API, displaying it in a clear and intuitive format.
+### Deployed Link
+  #### GitHub Pages
+       https://yadavharsh01.github.io/Weather-Hub/
 
 ## Tech Stack
 
